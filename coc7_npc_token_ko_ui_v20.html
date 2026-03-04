@@ -556,7 +556,7 @@ td:last-child, th:last-child{ width: 64px; min-width:64px; padding-right:14px !i
 </div>
 </div>
 <div class="section"><div class="sectionTitle"></div><div class="skill-command-grid"><div class="sc-col"><div class="command-table">
-<h3>스킬</h3>
+<h3>기능치</h3>
 <table id="skillsTable" style="max-width: 340px">
 <tr>
 <th>기능치</th>
@@ -614,7 +614,7 @@ td:last-child, th:last-child{ width: 64px; min-width:64px; padding-right:14px !i
 			function saveData() {
 				const saveName = document.getElementById("nameInput").value.trim();
 				if (!saveName) {
-					showSaveMessage("이름を入力して下さい");
+					showSaveMessage("이름을 입력해주세요.");
 					return;
 				}
 
@@ -669,7 +669,7 @@ td:last-child, th:last-child{ width: 64px; min-width:64px; padding-right:14px !i
 
 				const key = `coc7_savedData_${saveName}`;
 				localStorage.setItem(key, JSON.stringify(dataToSave));
-				showSaveMessage("저장しました");
+				showSaveMessage("저장이 완료됐습니다.");
 				document.getElementById("nameInput").value = "";
 				updateDataList();
 			}
@@ -755,22 +755,22 @@ td:last-child, th:last-child{ width: 64px; min-width:64px; padding-right:14px !i
 					}
 
 					updateStats();
-					showSaveMessage("불러오기ました");
+					showSaveMessage("불러오기 성공");
 				} else {
-					showSaveMessage("데이터를 찾을 수 없어요");
+					showSaveMessage("데이터를 찾을 수 없습니다.");
 				}
 			}
 
 			function deleteData() {
 				const selectedKey = loadKeySelect.value;
 				if (!selectedKey) {
-					showSaveMessage("삭제するデータを選択してください");
+					showSaveMessage("삭제할 데이터를 선택해 주세요.");
 					return;
 				}
 
 				if (confirm(`「${selectedKey.substring("coc7_savedData_".length)}」のデータを삭제してもよろしいですか？`)) {
 					localStorage.removeItem(selectedKey);
-					showSaveMessage("データを삭제しました");
+					showSaveMessage("데이터 삭제 완료");
 					updateDataList();
 				}
 			}
@@ -855,21 +855,21 @@ td:last-child, th:last-child{ width: 64px; min-width:64px; padding-right:14px !i
 				document.getElementById("rollBtn").addEventListener("click", rollAbilities);
 				document.getElementById("copyBtn").addEventListener("click", () => {
 					navigator.clipboard.writeText(generateJSON());
-					showMessage("복사했어요");
+					showMessage("복사 완료");
 				});
 				document.getElementById("rollCopyBtn").addEventListener("click", () => {
 					rollAbilities();
 					navigator.clipboard.writeText(generateJSON());
-					showMessage("복사했어요");
+					showMessage("복사 완료");
 				});
 				document.getElementById("cpCopyBtn").addEventListener("click", () => {
 					navigator.clipboard.writeText(generateChaPale().cmds);
-					showMessage("복사했어요");
+					showMessage("복사 완료");
 				});
 				document.getElementById("rollCpCopyBtn").addEventListener("click", () => {
 					rollAbilities();
 					navigator.clipboard.writeText(generateChaPale().cmds);
-					showMessage("복사했어요");
+					showMessage("복사 완료");
 				});
 				document.getElementById("addSkillBtn").addEventListener("click", () => addRow("skillsTable"));
 				document.getElementById("addDamageBtn").addEventListener("click", () => addRow("damageTable"));
